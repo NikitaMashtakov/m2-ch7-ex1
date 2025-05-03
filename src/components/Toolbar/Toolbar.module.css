@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 728px) {
+  .container {
+    flex-direction: column;
+  }
+}

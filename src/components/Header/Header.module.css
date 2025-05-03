@@ -1,0 +1,15 @@
+.container {
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.title {
+  text-align: center;
+  transition: 0.1s;
+}
+
+@media (max-width: 728px) {
+  .title {
+    font-size: 26px;
+  }
+}

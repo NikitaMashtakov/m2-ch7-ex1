@@ -1,0 +1,13 @@
+.button {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 5px 5px;
+  border-radius: 5px;
+  width: max-content;
+  &:hover {
+    background-color: #d8d8d89c;
+  }
+}
