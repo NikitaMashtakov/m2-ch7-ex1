@@ -62,31 +62,6 @@ const AllTodoPage = () => {
     }
   };
 
-  // const onAddTodo = (text) => {
-  //   addTodo(text)
-  //     .then((newTodo) => {
-  //       setTodos((prev) => [newTodo, ...prev]);
-  //     })
-  //     .catch((err) => console.log(err));
-  // };
-  // const onCompleteTodo = (id, completed) => {
-  //   completeTodo(id, completed)
-  //     .then((updatedTodo) =>
-  //       setTodos((prev) => prev.map((todo) => (todo.id === id ? updatedTodo : todo))),
-  //     )
-  //     .catch((err) => console.log(err));
-  // };
-  // const onDeleteTodo = (id) => {
-  //   deleteTodo(id)
-  //     .then(setTodos((prev) => prev.filter((todo) => todo.id !== id)))
-  //     .catch((err) => console.log(err));
-  // };
-  // const onEditTodo = (id, text) => {
-  //   editTodo(id, text).then((updatedTodo) => {
-  //     setTodos((prev) => prev.map((todo) => (todo.id === id ? updatedTodo : todo)));
-  //   });
-  // };
-
   return (
     <>
       <Toolbar>
@@ -100,19 +75,9 @@ const AllTodoPage = () => {
       </Toolbar>
 
       <TodoContext value={{ todos, dispatch }}>
-        <NewTodoInput
-          placeholder="Новая задача..."
-          buttonName="Добавить"
-          // inputHandler={onAddTodo}
-        />
+        <NewTodoInput placeholder="Новая задача..." buttonName="Добавить" />
 
-        <TodoList
-          // todos={todos}
-          // onCompleteTodo={onCompleteTodo}
-          // onEditTodo={onEditTodo}
-          // onDeleteTodo={onDeleteTodo}
-          debouncedSearch={debouncedSearch}
-        />
+        <TodoList debouncedSearch={debouncedSearch} />
       </TodoContext>
     </>
   );
