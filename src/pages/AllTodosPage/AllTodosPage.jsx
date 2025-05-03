@@ -6,8 +6,9 @@ import { SearchBar } from 'components/SearchBar/SearchBar';
 import { Selector } from 'components/Selector/Selector';
 import { OPTIONS } from 'constants/sortingOptions';
 import useDebouncedValue from 'hooks/useDebouncedValue';
-import { getTodos, completeTodo, addTodo, deleteTodo, editTodo } from 'utils/api';
-import { TodoContext } from 'context/TodoContext';
+import { getTodos } from 'utils/api';
+import { TodoContext } from 'contexts/TodoContext';
+import { todoReducer } from 'reducers/todoReducer';
 
 const AllTodoPage = () => {
   const [todos, setTodos] = useState([]);
@@ -27,39 +28,7 @@ const AllTodoPage = () => {
   };
 
   const dispatch = (action) => {
-    const { type, ...payload } = action;
-    switch (type) {
-      case 'ADD_TODO':
-        addTodo(payload.text)
-          .then((newTodo) => {
-            setTodos((prev) => [newTodo, ...prev]);
-          })
-          .catch((err) => console.log(err));
-        break;
-      case 'COMPLETE_TODO':
-        completeTodo(payload.id, payload.completed)
-          .then((updatedTodo) =>
-            setTodos((prev) =>
-              prev.map((todo) => (todo.id === payload.id ? updatedTodo : todo)),
-            ),
-          )
-          .catch((err) => console.log(err));
-        break;
-      case 'EDIT_TODO':
-        editTodo(payload.id, payload.text).then((updatedTodo) => {
-          setTodos((prev) =>
-            prev.map((todo) => (todo.id === payload.id ? updatedTodo : todo)),
-          );
-        });
-        break;
-      case 'DELETE_TODO':
-        deleteTodo(payload.id)
-          .then(setTodos((prev) => prev.filter((todo) => todo.id !== payload.id)))
-          .catch((err) => console.log(err));
-        break;
-      default:
-        break;
-    }
+    todoReducer(todos, action).then((newTodos) => setTodos(newTodos));
   };
 
   return (

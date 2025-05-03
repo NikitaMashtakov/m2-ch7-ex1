@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import styles from './NewTodoInput.module.css';
 import PropTypes from 'prop-types';
 import { Button } from 'components/Button/Button';
-import { TodoContext } from 'context/TodoContext';
+import { TodoContext } from 'contexts/TodoContext';
 
 export const NewTodoInput = ({ buttonName, placeholder }) => {
   const [text, setText] = useState('');

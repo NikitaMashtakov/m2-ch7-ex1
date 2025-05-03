@@ -3,7 +3,7 @@ import { Button } from 'components/Button/Button';
 import { useEffect, useState, useRef, useContext } from 'react';
 import { MdOutlineEdit, MdOutlineDelete, MdDone, MdClose } from 'react-icons/md';
 import styles from './Todo.module.css';
-import { TodoContext } from 'context/TodoContext';
+import { TodoContext } from 'contexts/TodoContext';
 
 export const Todo = ({ id, title, completed }) => {
   const [isEditing, setIsEditing] = useState(false);

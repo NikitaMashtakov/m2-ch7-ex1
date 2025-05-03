@@ -2,7 +2,7 @@ import { Todo } from 'components/Todo/Todo';
 import PropTypes from 'prop-types';
 import styles from './TodoList.module.css';
 import { useContext } from 'react';
-import { TodoContext } from 'context/TodoContext';
+import { TodoContext } from 'contexts/TodoContext';
 export const TodoList = ({ debouncedSearch }) => {
   const { todos } = useContext(TodoContext);
   const todosToShow = todos.filter(({ title }) =>
