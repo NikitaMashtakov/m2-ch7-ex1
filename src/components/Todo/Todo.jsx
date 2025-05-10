@@ -38,7 +38,7 @@ export const Todo = ({ id, title, completed }) => {
           onChange={() => dispatch({ type: 'COMPLETE_TODO', id, completed })}
         />
         {isEditing ? (
-          <input
+          <textarea
             ref={editInputRef}
             className={styles.editTodo}
             type="text"
